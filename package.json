@@ -1,0 +1,19 @@
+{
+  "name": "royal-orbitech",
+  "version": "1.0.0",
+  "description": "ROYAL ORBITECH — boutique e-commerce dynamique (Node + Express + PostgreSQL)",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.23.0"
+  }
+}

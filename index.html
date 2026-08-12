@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROYAL ORBITECH — Boutique Technologique | Achat en ligne</title>
+<meta name="description" content="Boutique en ligne ROYAL ORBITECH : téléphones, ordinateurs, audio, objets connectés, gaming et électroménager. Produits authentiques, prix compétitifs, livraison rapide.">
+<meta name="theme-color" content="#ff6a00">
+<meta name="keywords" content="boutique technologie, téléphones, ordinateurs, électroménager, Bénin, achat en ligne, ROYAL ORBITECH">
+<link rel="canonical" href="https://www.royalorbitech.com/">
+<link rel="icon" type="image/png" href="images/logo.png">
+<!-- Open Graph / partage réseaux sociaux -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ROYAL ORBITECH">
+<meta property="og:title" content="ROYAL ORBITECH — Boutique Technologique">
+<meta property="og:description" content="Produits technologiques authentiques, prix compétitifs et livraison rapide. Téléphones, ordinateurs, audio, électroménager et plus.">
+<meta property="og:image" content="https://www.royalorbitech.com/images/logo.png">
+<meta property="og:url" content="https://www.royalorbitech.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ROYAL ORBITECH — Boutique Technologique">
+<meta name="twitter:description" content="Produits authentiques, prix compétitifs, livraison rapide.">
+<meta name="twitter:image" content="https://www.royalorbitech.com/images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+  <div class="container topbar-in">
+    <span class="tb-msg" data-fr="Livraison rapide  ·  Produits 100% authentiques  ·  Paiement sécurisé"
+          data-en="Fast delivery  ·  100% authentic products  ·  Secure payment">Livraison rapide  ·  Produits 100% authentiques  ·  Paiement sécurisé</span>
+    <div class="tb-right">
+      <a href="apropos.html" data-fr="À propos" data-en="About">À propos</a>
+      <a href="admin.html" data-fr="Admin" data-en="Admin">Admin</a>
+      <a href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener" data-fr="Aide" data-en="Help">Aide</a>
+      <button class="lang-toggle" id="langToggle">FR / EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container header-in">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="Royal Orbitech" class="brand-logo">
+      <span class="brand-name">ROYAL <b>ORBITECH</b></span>
+    </a>
+    <form class="search" id="searchForm" role="search">
+      <select id="searchCat" aria-label="Catégorie"></select>
+      <input type="search" id="searchInput" placeholder="Rechercher un produit…" data-ph-fr="Rechercher un produit…" data-ph-en="Search for a product…" autocomplete="off">
+      <button type="submit" aria-label="Rechercher">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span data-fr="Rechercher" data-en="Search">Rechercher</span>
+      </button>
+    </form>
+    <div class="header-actions">
+      <a href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener" class="hicon wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.5-.8-2.6-1.4-3.6-3.1-.3-.5.3-.4.8-1.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.3A10 10 0 1012 2z"/></svg>
+      </a>
+      <button class="hicon cart-btn" id="cartBtn" aria-label="Panier">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.2 12.4a2 2 0 002 1.6h8.7a2 2 0 002-1.6L22 7H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO : MENU CATÉGORIES + BANNIÈRE ===== -->
+<section class="hero-wrap">
+  <div class="container hero-grid">
+    <aside class="cat-side">
+      <h4 data-fr="Catégories" data-en="Categories">Catégories</h4>
+      <ul id="catSidebar"><!-- rempli par JS --></ul>
+    </aside>
+    <div class="banner">
+      <div class="banner-text">
+        <span class="banner-eyebrow" data-fr="Boutique en ligne" data-en="Online store">Boutique en ligne</span>
+        <h1 data-fr="La technologie de qualité, à portée de clic" data-en="Quality technology, one click away">La technologie de qualité, à portée de clic</h1>
+        <p data-fr="Téléphones, ordinateurs, audio, électroménager et bien plus — produits authentiques, prix compétitifs, livraison rapide."
+           data-en="Phones, computers, audio, appliances and more — authentic products, competitive prices, fast delivery.">Téléphones, ordinateurs, audio, électroménager et bien plus — produits authentiques, prix compétitifs, livraison rapide.</p>
+        <div class="banner-cta">
+          <a href="#catalogue" class="btn btn-royal" data-fr="Voir tous les produits" data-en="See all products">Voir tous les produits</a>
+          <a href="#deals" class="btn btn-outline" data-fr="Offres du moment" data-en="Today's deals">Offres du moment</a>
+        </div>
+      </div>
+      <div class="banner-promo">
+        <span class="bp-off">-30%</span>
+        <span data-fr="sur une sélection de produits" data-en="on selected products">sur une sélection de produits</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TUILES CATÉGORIES ===== -->
+<section class="section-lite">
+  <div class="container">
+    <h2 class="block-title" data-fr="Parcourir par catégorie" data-en="Browse by category">Parcourir par catégorie</h2>
+    <div class="cat-tiles" id="catTiles"><!-- rempli par JS --></div>
+  </div>
+</section>
+
+<!-- ===== OFFRES DU MOMENT ===== -->
+<section class="section-lite" id="deals">
+  <div class="container">
+    <div class="block-head">
+      <h2 class="block-title"><svg class="bt-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5 9.5-12.5H12.5z"/></svg><span data-fr="Offres du moment" data-en="Today's deals">Offres du moment</span></h2>
+      <span class="block-sub" data-fr="Stock limité" data-en="Limited stock">Stock limité</span>
+    </div>
+    <div class="grid" id="dealsGrid"><!-- rempli par JS --></div>
+  </div>
+</section>
+
+<!-- ===== CATALOGUE ===== -->
+<section class="section-lite" id="catalogue">
+  <div class="container">
+    <div class="block-head">
+      <h2 class="block-title" id="catalogueTitle" data-fr="Tous les produits" data-en="All products">Tous les produits</h2>
+      <div class="toolbar">
+        <span class="result-count" id="resultCount"></span>
+        <select id="sortSelect" class="sort">
+          <option value="pop" data-fr="Popularité" data-en="Popularity">Popularité</option>
+          <option value="asc" data-fr="Prix croissant" data-en="Price: low to high">Prix croissant</option>
+          <option value="desc" data-fr="Prix décroissant" data-en="Price: high to low">Prix décroissant</option>
+          <option value="rating" data-fr="Meilleures notes" data-en="Top rated">Meilleures notes</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid" id="productGrid"><!-- rempli par JS --></div>
+    <p class="empty-msg" id="emptyMsg" data-fr="Aucun produit trouvé. Essayez une autre recherche." data-en="No products found. Try another search.">Aucun produit trouvé.</p>
+  </div>
+</section>
+
+<!-- ===== BANDE CONFIANCE ===== -->
+<section class="features">
+  <div class="container features-in">
+    <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v9h-11z"/><path d="M13.5 9.5H18l3 3v3h-7.5z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div><b data-fr="Livraison rapide" data-en="Fast delivery">Livraison rapide</b><span data-fr="Partout, dans les meilleurs délais" data-en="Everywhere, on time">Partout, dans les meilleurs délais</span></div>
+    <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><b data-fr="100% authentique" data-en="100% authentic">100% authentique</b><span data-fr="Produits d'origine garantis" data-en="Genuine products guaranteed">Produits d'origine garantis</span></div>
+    <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><b data-fr="Achat sécurisé" data-en="Secure purchase">Achat sécurisé</b><span data-fr="Vos données sont protégées" data-en="Your data is protected">Vos données sont protégées</span></div>
+    <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-4 4z"/></svg></div><b data-fr="Support 24h/24" data-en="24/7 support">Support 24h/24</b><span data-fr="Une équipe à votre écoute" data-en="A team at your service">Une équipe à votre écoute</span></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-in">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="Royal Orbitech" class="brand-logo">
+      <span class="brand-name">ROYAL <b>ORBITECH</b></span>
+      <p data-fr="Votre partenaire de confiance pour la technologie et la transformation numérique."
+         data-en="Your trusted partner for technology and digital transformation.">Votre partenaire de confiance pour la technologie et la transformation numérique.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-fr="Boutique" data-en="Shop">Boutique</h4>
+      <a href="#catalogue" data-fr="Tous les produits" data-en="All products">Tous les produits</a>
+      <a href="#deals" data-fr="Offres du moment" data-en="Deals">Offres du moment</a>
+      <a href="#catTiles" data-fr="Catégories" data-en="Categories">Catégories</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-fr="Entreprise" data-en="Company">Entreprise</h4>
+      <a href="apropos.html" data-fr="À propos" data-en="About">À propos</a>
+      <a href="apropos.html#services" data-fr="Nos services" data-en="Our services">Nos services</a>
+      <a href="apropos.html#contact" data-fr="Contact" data-en="Contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+      <a href="tel:+000000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v4a1.5 1.5 0 0 1-1.6 1.5A17 17 0 0 1 3 6.6 1.5 1.5 0 0 1 4 4z"/></svg>+XXX XX XX XX XX</a>
+      <a href="mailto:votre-email@royalorbitech.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>votre-email@royalorbitech.com</a>
+      <a href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.5-.8-2.6-1.4-3.6-3.1-.3-.5.3-.4.8-1.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.3A10 10 0 1012 2z"/></svg>WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom container">© <span id="year">2026</span> ROYAL ORBITECH — <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span>
+    · <a href="mentions-legales.html" style="color:#9aa1b3" data-fr="Mentions légales" data-en="Legal">Mentions légales</a>
+    · <a href="cgv.html" style="color:#9aa1b3" data-fr="CGV" data-en="Terms">CGV</a>
+    · <a href="confidentialite.html" style="color:#9aa1b3" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
+    · <a href="admin.html" style="color:#9aa1b3" data-fr="Espace admin" data-en="Admin">Espace admin</a></div>
+</footer>
+
+<!-- ===== PANIER (DRAWER) ===== -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Panier">
+  <div class="cart-head">
+    <h3 data-fr="Mon panier" data-en="My cart">Mon panier</h3>
+    <button class="cart-close" id="cartClose" aria-label="Fermer">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-empty" id="cartEmpty" data-fr="Votre panier est vide." data-en="Your cart is empty.">Votre panier est vide.</div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-total"><span data-fr="Total" data-en="Total">Total</span><b id="cartTotal">0 FCFA</b></div>
+    <button class="btn btn-royal btn-block" id="checkoutBtn" data-fr="Passer la commande →" data-en="Checkout →">Passer la commande →</button>
+    <p class="cart-note" data-fr="Livraison rapide • Paiement à la livraison ou via WhatsApp" data-en="Fast delivery • Pay on delivery or via WhatsApp">Livraison rapide • Paiement à la livraison ou via WhatsApp</p>
+  </div>
+</aside>
+
+<!-- ===== QUICK VIEW MODAL ===== -->
+<div class="modal" id="modal">
+  <div class="modal-box" id="modalBox"><!-- rempli par JS --></div>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="modal" id="checkoutModal">
+  <div class="co-box">
+    <div class="co-head">
+      <h3 data-fr="Finaliser la commande" data-en="Complete your order">Finaliser la commande</h3>
+      <button class="cart-close" id="coClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="co-body">
+      <div class="frow">
+        <input id="coName" placeholder="Nom complet" data-ph-fr="Nom complet" data-ph-en="Full name">
+        <input id="coPhone" placeholder="Téléphone / WhatsApp" data-ph-fr="Téléphone / WhatsApp" data-ph-en="Phone / WhatsApp">
+      </div>
+      <textarea id="coAddress" rows="2" placeholder="Adresse de livraison" data-ph-fr="Adresse de livraison" data-ph-en="Delivery address"></textarea>
+      <div class="co-promo">
+        <input id="coPromo" placeholder="Code promo (optionnel)" data-ph-fr="Code promo (optionnel)" data-ph-en="Promo code (optional)" style="text-transform:uppercase">
+        <button class="btn btn-outline btn-sm" id="coPromoBtn" data-fr="Appliquer" data-en="Apply">Appliquer</button>
+      </div>
+      <div id="coPromoMsg" class="co-msg"></div>
+      <div class="co-pay" id="coPay">
+        <label><input type="radio" name="paym" value="whatsapp" checked> <span data-fr="Commander via WhatsApp (recommandé)" data-en="Order via WhatsApp (recommended)">Commander via WhatsApp (recommandé)</span></label>
+        <label><input type="radio" name="paym" value="cash"> <span data-fr="Paiement à la livraison" data-en="Pay on delivery">Paiement à la livraison</span></label>
+        <label id="coOnlineOpt" style="display:none"><input type="radio" name="paym" value="online"> <span data-fr="Paiement en ligne" data-en="Online payment">Paiement en ligne</span></label>
+      </div>
+      <div class="co-summary" id="coSummary"></div>
+      <button class="btn btn-royal btn-block" id="coConfirm" data-fr="Confirmer la commande" data-en="Confirm order">Confirmer la commande</button>
+      <p class="cart-note" data-fr="Vos informations restent confidentielles." data-en="Your information stays confidential.">Vos informations restent confidentielles.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.5-.8-2.6-1.4-3.6-3.1-.3-.5.3-.4.8-1.4.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.3A10 10 0 1012 2z"/></svg>
+</a>
+
+<script src="api.js"></script>
+<script src="shop.js"></script>
+</body>
+</html>

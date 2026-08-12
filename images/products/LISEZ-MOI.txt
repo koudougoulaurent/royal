@@ -1,0 +1,62 @@
+========================================
+  IMAGES PRODUITS — ROYAL ORBITECH
+========================================
+
+>>> Des visuels ORIGINAUX (fichiers .svg) sont DÉJÀ EN PLACE pour
+    chaque produit : la boutique affiche donc de vraies images.
+    Vous pourrez les remplacer par vos photos réelles quand vous
+    les aurez (voir "REMPLACER PAR UNE VRAIE PHOTO" plus bas).
+
+Le nom du fichier doit correspondre EXACTEMENT au champ "img"
+défini dans le fichier products.js (à la racine du site).
+
+REMPLACER PAR UNE VRAIE PHOTO
+-----------------------------
+2 méthodes au choix :
+ A) Renommez votre photo avec le même nom mais en .jpg
+    (ex : smartphone-pro.jpg) PUIS, dans products.js, changez
+    l'extension du produit de .svg en .jpg.
+ B) Ou remplacez directement le contenu du fichier .svg existant.
+
+Tant qu'une image est absente, une icône s'affiche à la place
+(le site reste propre et fonctionnel).
+
+VISUELS ACTUELLEMENT EN PLACE (.svg)
+------------------------------------
+
+NOMS DE FICHIERS ATTENDUS
+-------------------------
+smartphone-pro.jpg
+smartphone-lite.jpg
+laptop-ultra.jpg
+laptop-business.jpg
+desktop-pro.jpg
+earbuds.jpg
+headphones.jpg
+speaker.jpg
+smartwatch.jpg
+camera-security.jpg
+smart-bulb.jpg
+powerbank.jpg
+charger.jpg
+usb-hub.jpg
+gaming-mouse.jpg
+gaming-keyboard.jpg
+controller.jpg
+blender.jpg
+airfryer.jpg
+router.jpg
+repeater.jpg
+monitor.jpg
+
+CONSEILS
+--------
+- Format carré conseillé (ex : 800 x 800 px), fond clair/épuré.
+- Poids < 300 Ko par image pour un site rapide.
+- Formats .jpg ou .png acceptés (gardez l'extension .jpg dans products.js
+  ou changez-la pour correspondre à votre fichier).
+
+AJOUTER / MODIFIER UN PRODUIT
+-----------------------------
+Ouvrez products.js : copiez un bloc { ... }, changez le nom, le prix,
+la catégorie et le nom de l'image. C'est tout !

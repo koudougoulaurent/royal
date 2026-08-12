@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — ROYAL ORBITECH</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div class="login" id="login">
+  <div class="login-box">
+    <img src="images/logo.png" alt="Royal Orbitech">
+    <h1>Espace administrateur</h1>
+    <p>ROYAL ORBITECH — Gestion de la boutique</p>
+    <div class="login-err" id="loginErr"></div>
+    <input type="password" id="passInput" placeholder="Mot de passe" autocomplete="current-password">
+    <button class="btn btn-primary btn-block" id="loginBtn">Se connecter</button>
+    <p class="login-hint">Mot de passe par défaut : <b>admin</b> (à changer dans Réglages)</p>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div class="app" id="app">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="side-brand">
+      <img src="images/logo.png" alt="">
+      <b>ROYAL <span>ORBITECH</span></b>
+    </div>
+    <nav class="side-nav" id="sideNav">
+      <button data-view="dash" class="active">📊 Tableau de bord</button>
+      <button data-view="products">📦 Produits</button>
+      <button data-view="orders">🧾 Commandes</button>
+      <button data-view="cats">🏷️ Catégories</button>
+      <button data-view="promos">🎟️ Codes promo</button>
+      <button data-view="settings">⚙️ Réglages</button>
+      <button data-view="backup">💾 Sauvegarde</button>
+    </nav>
+    <div class="side-foot">
+      <a href="index.html" target="_blank">🛍️ Voir la boutique</a>
+      <button id="logoutBtn">🚪 Se déconnecter</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section class="view show" id="view-dash">
+      <div class="main-head"><h2>Tableau de bord</h2>
+        <button class="btn btn-primary" data-goto="products">＋ Ajouter un produit</button></div>
+      <div class="stat-cards" id="statCards"></div>
+      <div class="dash-grid">
+        <div class="panel">
+          <div class="panel-head"><h3>Ventes (14 derniers jours)</h3></div>
+          <div style="padding:16px"><canvas id="salesChart" height="150"></canvas><div id="salesEmpty" class="hint" style="text-align:center;padding:20px;display:none">Pas encore de commande.</div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>⚠️ Stock faible</h3></div>
+          <div class="tbl-wrap"><table><tbody id="lowStock"></tbody></table></div>
+        </div>
+      </div>
+      <div class="dash-grid" style="margin-top:16px">
+        <div class="panel">
+          <div class="panel-head"><h3>🏆 Meilleures ventes</h3></div>
+          <div class="tbl-wrap"><table><tbody id="topProducts"></tbody></table></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Derniers produits</h3><a class="btn btn-ghost btn-sm" data-goto="products">Tout voir</a></div>
+          <div class="tbl-wrap"><table><tbody id="dashRecent"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUITS -->
+    <section class="view" id="view-products">
+      <div class="main-head"><h2>Produits</h2>
+        <button class="btn btn-primary" id="addProductBtn">＋ Ajouter un produit</button></div>
+      <div class="panel">
+        <div class="panel-head">
+          <h3 id="prodCount">0 produit</h3>
+          <input type="search" class="tbl-search" id="prodSearch" placeholder="Rechercher…">
+        </div>
+        <div class="tbl-wrap"><table>
+          <thead><tr>
+            <th>Produit</th><th class="hide-sm">Catégorie</th><th>Prix</th>
+            <th class="hide-sm">Badge</th><th class="hide-sm">Note</th><th style="text-align:right">Actions</th>
+          </tr></thead>
+          <tbody id="prodRows"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <!-- COMMANDES -->
+    <section class="view" id="view-orders">
+      <div class="main-head"><h2>Commandes</h2>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-ghost btn-sm" id="exportOrders">⬇️ Export CSV</button>
+          <button class="btn btn-ghost btn-sm" id="refreshOrders">↻ Actualiser</button>
+        </div></div>
+      <div class="panel">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>#</th><th class="hide-sm">Date</th><th>Client</th><th class="hide-sm">Articles</th><th>Total</th><th>Statut</th></tr></thead>
+          <tbody id="orderRows"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <!-- CATÉGORIES -->
+    <section class="view" id="view-cats">
+      <div class="main-head"><h2>Catégories</h2>
+        <button class="btn btn-primary" id="addCatBtn">＋ Ajouter une catégorie</button></div>
+      <div class="panel">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Icône</th><th>Nom (FR)</th><th>Nom (EN)</th><th class="hide-sm">Clé</th><th class="hide-sm">Produits</th><th style="text-align:right">Actions</th></tr></thead>
+          <tbody id="catRows"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <!-- CODES PROMO -->
+    <section class="view" id="view-promos">
+      <div class="main-head"><h2>Codes promo</h2>
+        <button class="btn btn-primary" id="addPromoBtn">＋ Ajouter un code</button></div>
+      <div class="panel">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Code</th><th>Type</th><th>Valeur</th><th class="hide-sm">Commande min.</th><th>Actif</th><th style="text-align:right">Actions</th></tr></thead>
+          <tbody id="promoRows"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <!-- RÉGLAGES -->
+    <section class="view" id="view-settings">
+      <div class="main-head"><h2>Réglages</h2></div>
+      <div class="form-card" style="margin-bottom:20px">
+        <h3>Coordonnées (utilisées sur tout le site)</h3>
+        <div class="field"><label>Numéro WhatsApp <span class="hint">(indicatif + numéro, sans + ni espaces — ex : 22961234567)</span></label><input id="setWhatsapp" placeholder="22961234567"></div>
+        <div class="frow">
+          <div class="field"><label>Téléphone affiché</label><input id="setPhone" placeholder="+229 61 23 45 67"></div>
+          <div class="field"><label>Email</label><input id="setEmail" placeholder="contact@royalorbitech.com"></div>
+        </div>
+        <div class="field"><label>Ville / Pays</label><input id="setCity" placeholder="Cotonou, Bénin"></div>
+        <button class="btn btn-primary" id="saveSettingsBtn">Enregistrer les coordonnées</button>
+      </div>
+
+      <div class="form-card" style="margin-bottom:20px">
+        <h3>Livraison & paiement</h3>
+        <div class="frow">
+          <div class="field"><label>Frais de livraison (FCFA)</label><input id="setDelivery" type="number" min="0" placeholder="0"></div>
+          <div class="field"><label>Livraison gratuite à partir de (FCFA)</label><input id="setFreeShip" type="number" min="0" placeholder="0 = jamais"></div>
+        </div>
+        <hr style="border:none;border-top:1px solid var(--line);margin:16px 0">
+        <div class="frow">
+          <div class="field"><label>Prestataire de paiement en ligne</label>
+            <select id="setPayProvider">
+              <option value="">Aucun (WhatsApp / à la livraison)</option>
+              <option value="fedapay">FedaPay</option>
+              <option value="cinetpay">CinetPay</option>
+              <option value="kkiapay">Kkiapay</option>
+            </select></div>
+          <div class="field"><label>Clé publique</label><input id="setPayKey" placeholder="clé publique du prestataire"></div>
+        </div>
+        <div class="field"><label><input type="checkbox" id="setPayActive"> Activer le paiement en ligne sur la boutique</label>
+          <p class="hint">Tant que ce n'est pas activé, les clients commandent via WhatsApp ou paiement à la livraison. La clé publique n'est pas secrète ; ne collez jamais votre clé secrète ici.</p></div>
+        <button class="btn btn-primary" id="savePayBtn">Enregistrer livraison & paiement</button>
+      </div>
+
+      <div class="form-card">
+        <h3>Sécurité</h3>
+        <div class="frow">
+          <div class="field"><label>Nouveau mot de passe admin</label><input type="password" id="setPass" placeholder="Nouveau mot de passe"></div>
+          <div class="field"><label>Confirmer</label><input type="password" id="setPass2" placeholder="Confirmer"></div>
+        </div>
+        <button class="btn btn-primary" id="savePassBtn">Changer le mot de passe</button>
+        <p class="hint" style="margin-top:12px">ℹ️ Ce verrou protège l'accès sur cet ordinateur/navigateur. Ce n'est pas une sécurité serveur : pour une vraie protection multi-utilisateurs, il faudra une base de données en ligne (étape suivante).</p>
+      </div>
+    </section>
+
+    <!-- SAUVEGARDE -->
+    <section class="view" id="view-backup">
+      <div class="main-head"><h2>Sauvegarde & restauration</h2></div>
+      <div class="form-card">
+        <h3>Exporter vos données</h3>
+        <p class="hint">Téléchargez une copie de votre catalogue, vos catégories et vos réglages (format .json).</p>
+        <div class="backup-row">
+          <button class="btn btn-primary" id="exportBtn">⬇️ Exporter (fichier .json)</button>
+        </div>
+        <hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+        <h3>Sauvegarde de la base</h3>
+        <p class="hint">Toutes vos données sont enregistrées dans le fichier <b>data/royalorbitech.db</b> sur le serveur.
+        Pour une sauvegarde complète (produits, commandes, images), copiez le dossier <b>data/</b> et le dossier <b>images/</b>.
+        Les images envoyées sont stockées dans <b>images/products/</b>.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ===== MODAL PRODUIT ===== -->
+<div class="modal" id="prodModal">
+  <div class="modal-box">
+    <h3 id="prodModalTitle">Ajouter un produit</h3>
+    <input type="hidden" id="pfId">
+    <div class="field">
+      <label>Image du produit</label>
+      <div class="img-picker">
+        <div class="img-preview" id="pfPreview">🖼️</div>
+        <div style="flex:1">
+          <input type="file" id="pfImgFile" accept="image/*">
+          <p class="hint">JPG ou PNG depuis votre appareil (redimensionnée automatiquement).</p>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input id="pfImgUrl" placeholder="… ou coller un lien d'image (https://…)" style="flex:1;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:13.5px">
+            <button type="button" class="btn btn-ghost btn-sm" id="pfImgUrlBtn">Utiliser</button>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm" id="pfImgClear" style="margin-top:8px">Retirer l'image</button>
+        </div>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="field"><label>Nom (FR)</label><input id="pfNameFr" placeholder="Ex : Smartphone Pro 5G"></div>
+      <div class="field"><label>Nom (EN)</label><input id="pfNameEn" placeholder="Ex : Pro 5G Smartphone"></div>
+    </div>
+    <div class="frow3">
+      <div class="field"><label>Catégorie</label><select id="pfCat"></select></div>
+      <div class="field"><label>Prix (FCFA)</label><input id="pfPrice" type="number" min="0" placeholder="485000"></div>
+      <div class="field"><label>Ancien prix</label><input id="pfOld" type="number" min="0" placeholder="0 = aucun"></div>
+    </div>
+    <div class="frow3">
+      <div class="field"><label>Badge</label><select id="pfBadge">
+        <option value="">Aucun</option><option value="promo">Promo</option><option value="new">Nouveau</option><option value="top">Top vente</option>
+      </select></div>
+      <div class="field"><label>Note (0-5)</label><input id="pfRating" type="number" min="0" max="5" step="0.1" placeholder="4.7"></div>
+      <div class="field"><label>Ventes</label><input id="pfSold" type="number" min="0" placeholder="1200"></div>
+    </div>
+    <div class="frow3">
+      <div class="field"><label>Stock <span class="hint">(vide = non suivi)</span></label><input id="pfStock" type="number" min="0" placeholder="ex : 10"></div>
+      <div class="field"><label>Marque</label><input id="pfBrand" placeholder="ex : Samsung"></div>
+      <div class="field"><label>Référence (SKU)</label><input id="pfSku" placeholder="ex : RO-1234"></div>
+    </div>
+    <div class="field">
+      <label>Photos supplémentaires</label>
+      <div id="pfGallery" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"></div>
+      <input type="file" id="pfGalleryFile" accept="image/*">
+      <p class="hint">Ajoutez d'autres angles du produit (visibles dans l'aperçu de la boutique).</p>
+    </div>
+    <div class="field"><label>Description (FR)</label><textarea id="pfDescFr" rows="2" placeholder="Courte description en français"></textarea></div>
+    <div class="field"><label>Description (EN)</label><textarea id="pfDescEn" rows="2" placeholder="Short description in English"></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="pfCancel">Annuler</button>
+      <button class="btn btn-primary" id="pfSave">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL CATÉGORIE ===== -->
+<div class="modal" id="catModal">
+  <div class="modal-box" style="max-width:460px">
+    <h3 id="catModalTitle">Ajouter une catégorie</h3>
+    <input type="hidden" id="cfKey">
+    <div class="frow">
+      <div class="field"><label>Icône (emoji)</label><input id="cfEmoji" placeholder="📱" maxlength="4"></div>
+      <div class="field"><label>Nom (FR)</label><input id="cfFr" placeholder="Téléphones"></div>
+    </div>
+    <div class="field"><label>Nom (EN)</label><input id="cfEn" placeholder="Phones"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="cfCancel">Annuler</button>
+      <button class="btn btn-primary" id="cfSave">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL PROMO ===== -->
+<div class="modal" id="promoModal">
+  <div class="modal-box" style="max-width:460px">
+    <h3>Code promo</h3>
+    <input type="hidden" id="prEdit">
+    <div class="frow">
+      <div class="field"><label>Code</label><input id="prCode" placeholder="BIENVENUE" style="text-transform:uppercase"></div>
+      <div class="field"><label>Type</label><select id="prType"><option value="percent">Pourcentage (%)</option><option value="fixed">Montant fixe (FCFA)</option></select></div>
+    </div>
+    <div class="frow">
+      <div class="field"><label>Valeur</label><input id="prValue" type="number" min="0" placeholder="10"></div>
+      <div class="field"><label>Commande min. (FCFA)</label><input id="prMin" type="number" min="0" placeholder="0"></div>
+    </div>
+    <div class="field"><label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="prActive" checked> Code actif</label></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="prCancel">Annuler</button>
+      <button class="btn btn-primary" id="prSave">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="api.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

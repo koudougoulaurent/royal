@@ -1,0 +1,76 @@
+==================================================================
+  ROYAL ORBITECH — SITE DYNAMIQUE (Node + Express + SQLite)
+  Guide de démarrage
+==================================================================
+
+Le site est maintenant DYNAMIQUE : un petit serveur lit et écrit les
+produits, catégories, réglages et commandes dans une vraie base de
+données (SQLite). Il faut donc DÉMARRER LE SERVEUR pour utiliser le site.
+
+------------------------------------------------------------------
+1) PRÉ-REQUIS (à faire une seule fois)
+------------------------------------------------------------------
+- Installer Node.js version 22.5 ou plus récente :
+  https://nodejs.org  (choisir la version « LTS » récente)
+  Pour vérifier, ouvrez un terminal et tapez :  node -v
+
+------------------------------------------------------------------
+2) INSTALLER LES DÉPENDANCES (une seule fois)
+------------------------------------------------------------------
+- Ouvrez un terminal DANS ce dossier (« site royal hotel »).
+  (Sur Mac : clic droit sur le dossier > « Nouveau terminal au dossier ».)
+- Tapez :
+      npm install
+
+------------------------------------------------------------------
+3) DÉMARRER LE SITE
+------------------------------------------------------------------
+- Dans le terminal (toujours dans ce dossier), tapez :
+      npm start
+- Vous verrez : « ROYAL ORBITECH est en ligne : http://localhost:3000 »
+- Ouvrez votre navigateur sur :
+      Boutique :  http://localhost:3000
+      Admin    :  http://localhost:3000/admin.html
+
+  ⚠️ N'ouvrez PAS les fichiers .html par double-clic : passez toujours
+     par http://localhost:3000 (sinon les données ne se chargent pas).
+
+- Pour arrêter le serveur : dans le terminal, appuyez sur Ctrl + C.
+
+------------------------------------------------------------------
+4) ADMINISTRATION
+------------------------------------------------------------------
+- Mot de passe par défaut : admin
+  (À changer immédiatement dans Admin > Réglages > Sécurité.)
+- Dans l'admin vous pouvez :
+    • Ajouter / modifier / supprimer des produits
+    • Envoyer les photos de produits (elles sont stockées sur le serveur,
+      dans images/products/)
+    • Gérer les catégories
+    • Voir et suivre les commandes (statut : en attente, confirmée…)
+    • Régler le numéro WhatsApp, téléphone, email, ville
+      (appliqués automatiquement à tout le site)
+
+------------------------------------------------------------------
+5) OÙ SONT MES DONNÉES / SAUVEGARDE
+------------------------------------------------------------------
+- Base de données  :  data/royalorbitech.db
+- Photos produits  :  images/products/
+Pour une sauvegarde complète, copiez ces deux dossiers ( data/ et images/ ).
+Vous pouvez aussi exporter le catalogue en JSON depuis Admin > Sauvegarde.
+
+------------------------------------------------------------------
+6) PORT DÉJÀ UTILISÉ ?
+------------------------------------------------------------------
+- Pour changer le port (ex. 4000) :
+      PORT=4000 npm start        (Mac/Linux)
+      set PORT=4000 && npm start (Windows)
+
+------------------------------------------------------------------
+NOTES
+------------------------------------------------------------------
+- Les anciens fichiers products.js et store.js (ancienne version
+  « statique ») ne sont plus utilisés par le site.
+- Paiement en ligne : la structure des commandes est prête ; l'ajout
+  d'un paiement (Mobile Money / carte) se fera avec un compte prestataire.
+==================================================================

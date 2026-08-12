@@ -1,0 +1,38 @@
+/* Données initiales : servent à remplir la base au premier démarrage.
+   (Ensuite, tout se gère depuis l'admin — ce fichier n'est plus utilisé.) */
+module.exports = {
+  categories: [
+    { key: 'phones',      emoji: '📱', fr: 'Téléphones',       en: 'Phones' },
+    { key: 'computers',   emoji: '💻', fr: 'Ordinateurs',      en: 'Computers' },
+    { key: 'audio',       emoji: '🎧', fr: 'Audio',            en: 'Audio' },
+    { key: 'accessories', emoji: '🔌', fr: 'Accessoires',      en: 'Accessories' },
+    { key: 'smart',       emoji: '🏠', fr: 'Objets connectés', en: 'Smart Home' },
+    { key: 'gaming',      emoji: '🎮', fr: 'Gaming',           en: 'Gaming' },
+    { key: 'appliances',  emoji: '🍳', fr: 'Électroménager',   en: 'Appliances' },
+    { key: 'network',     emoji: '📡', fr: 'Réseaux',          en: 'Networking' }
+  ],
+  products: [
+    { cat:'phones', img:'smartphone-pro.svg', price:485000, old:560000, badge:'promo', rating:4.8, sold:1240, name_fr:'Smartphone Pro 5G 256 Go', name_en:'Pro 5G Smartphone 256GB', desc_fr:'Écran AMOLED 6,7", triple caméra 108 MP, batterie 5000 mAh, charge rapide.', desc_en:'6.7" AMOLED display, 108MP triple camera, 5000mAh battery, fast charging.' },
+    { cat:'phones', img:'smartphone-lite.svg', price:215000, old:0, badge:'new', rating:4.5, sold:860, name_fr:'Smartphone Lite 128 Go', name_en:'Lite Smartphone 128GB', desc_fr:'Idéal au quotidien : grand écran, double SIM, autonomie 2 jours.', desc_en:'Perfect for daily use: large screen, dual SIM, 2-day battery life.' },
+    { cat:'computers', img:'laptop-ultra.svg', price:720000, old:820000, badge:'top', rating:4.9, sold:540, name_fr:'Ordinateur portable Ultra 16 Go', name_en:'Ultra Laptop 16GB', desc_fr:'Processeur dernière génération, SSD 512 Go, écran 15,6" Full HD.', desc_en:'Latest-gen processor, 512GB SSD, 15.6" Full HD display.' },
+    { cat:'computers', img:'laptop-business.svg', price:545000, old:0, badge:'', rating:4.6, sold:410, name_fr:'PC Portable Business 8 Go', name_en:'Business Laptop 8GB', desc_fr:'Léger et performant, parfait pour le travail et les études.', desc_en:'Light and powerful, perfect for work and study.' },
+    { cat:'computers', img:'desktop-pro.svg', price:950000, old:1090000, badge:'promo', rating:4.7, sold:220, name_fr:'PC Bureau Pro + Écran 24"', name_en:'Pro Desktop + 24" Monitor', desc_fr:'Station complète pour bureautique, design et création.', desc_en:'Complete workstation for office, design and creation.' },
+    { cat:'audio', img:'earbuds.svg', price:45000, old:65000, badge:'promo', rating:4.6, sold:3120, name_fr:'Écouteurs sans fil ANC', name_en:'Wireless Earbuds ANC', desc_fr:'Réduction de bruit active, son immersif, 30 h d\'autonomie.', desc_en:'Active noise cancelling, immersive sound, 30h battery.' },
+    { cat:'audio', img:'headphones.svg', price:78000, old:0, badge:'top', rating:4.8, sold:1450, name_fr:'Casque Bluetooth Premium', name_en:'Premium Bluetooth Headset', desc_fr:'Confort exceptionnel, basses puissantes, micro intégré.', desc_en:'Exceptional comfort, powerful bass, built-in mic.' },
+    { cat:'audio', img:'speaker.svg', price:62000, old:75000, badge:'', rating:4.5, sold:980, name_fr:'Enceinte Bluetooth Étanche', name_en:'Waterproof Bluetooth Speaker', desc_fr:'Son 360°, étanche IPX7, idéale intérieur et extérieur.', desc_en:'360° sound, IPX7 waterproof, great indoors and outdoors.' },
+    { cat:'smart', img:'smartwatch.svg', price:89000, old:120000, badge:'promo', rating:4.7, sold:2050, name_fr:'Montre connectée Sport', name_en:'Sport Smartwatch', desc_fr:'Fréquence cardiaque, GPS, notifications, étanche.', desc_en:'Heart rate, GPS, notifications, water resistant.' },
+    { cat:'smart', img:'camera-security.svg', price:55000, old:0, badge:'new', rating:4.4, sold:670, name_fr:'Caméra de surveillance WiFi', name_en:'WiFi Security Camera', desc_fr:'Vision nocturne, détection de mouvement, contrôle via smartphone.', desc_en:'Night vision, motion detection, smartphone control.' },
+    { cat:'smart', img:'smart-bulb.svg', price:12000, old:18000, badge:'promo', rating:4.3, sold:1890, name_fr:'Ampoule connectée RGB', name_en:'Smart RGB Bulb', desc_fr:'16 millions de couleurs, pilotable à la voix et à distance.', desc_en:'16 million colors, voice and remote control.' },
+    { cat:'accessories', img:'powerbank.svg', price:22000, old:30000, badge:'promo', rating:4.6, sold:4210, name_fr:'Batterie externe 20 000 mAh', name_en:'Power Bank 20000mAh', desc_fr:'Charge rapide, double USB + USB-C, recharge plusieurs fois.', desc_en:'Fast charge, dual USB + USB-C, multiple recharges.' },
+    { cat:'accessories', img:'charger.svg', price:15000, old:0, badge:'', rating:4.5, sold:2600, name_fr:'Chargeur rapide 65 W GaN', name_en:'65W GaN Fast Charger', desc_fr:'Compact et puissant, compatible ordinateurs et téléphones.', desc_en:'Compact and powerful, works with laptops and phones.' },
+    { cat:'accessories', img:'usb-hub.svg', price:28000, old:35000, badge:'', rating:4.4, sold:720, name_fr:'Hub USB-C 7-en-1', name_en:'7-in-1 USB-C Hub', desc_fr:'HDMI 4K, lecteur SD, 3 ports USB, idéal pour ordinateurs portables.', desc_en:'4K HDMI, SD reader, 3 USB ports, ideal for laptops.' },
+    { cat:'gaming', img:'gaming-mouse.svg', price:32000, old:42000, badge:'promo', rating:4.7, sold:1560, name_fr:'Souris Gaming RGB', name_en:'RGB Gaming Mouse', desc_fr:'Capteur haute précision, 7 boutons programmables, éclairage RGB.', desc_en:'High-precision sensor, 7 programmable buttons, RGB lighting.' },
+    { cat:'gaming', img:'gaming-keyboard.svg', price:48000, old:0, badge:'top', rating:4.8, sold:940, name_fr:'Clavier Mécanique Gaming', name_en:'Mechanical Gaming Keyboard', desc_fr:'Switches réactifs, rétroéclairage RGB, structure robuste.', desc_en:'Responsive switches, RGB backlight, sturdy build.' },
+    { cat:'gaming', img:'controller.svg', price:38000, old:45000, badge:'', rating:4.6, sold:1120, name_fr:'Manette de jeu sans fil', name_en:'Wireless Game Controller', desc_fr:'Compatible PC et consoles, ergonomique, retour vibratoire.', desc_en:'PC and console compatible, ergonomic, vibration feedback.' },
+    { cat:'appliances', img:'blender.svg', price:42000, old:55000, badge:'promo', rating:4.5, sold:830, name_fr:'Blender Multifonction 1000 W', name_en:'Multifunction Blender 1000W', desc_fr:'Puissant, plusieurs vitesses, bol en verre résistant.', desc_en:'Powerful, multiple speeds, durable glass jar.' },
+    { cat:'appliances', img:'airfryer.svg', price:68000, old:85000, badge:'top', rating:4.7, sold:1340, name_fr:'Friteuse sans huile 5 L', name_en:'Air Fryer 5L', desc_fr:'Cuisson saine sans huile, écran tactile, grande capacité.', desc_en:'Healthy oil-free cooking, touch screen, large capacity.' },
+    { cat:'network', img:'router.svg', price:58000, old:0, badge:'new', rating:4.6, sold:610, name_fr:'Routeur WiFi 6 Haut Débit', name_en:'WiFi 6 High-Speed Router', desc_fr:'Couverture étendue, connexion stable pour toute la maison ou le bureau.', desc_en:'Wide coverage, stable connection for home or office.' },
+    { cat:'network', img:'repeater.svg', price:24000, old:32000, badge:'promo', rating:4.3, sold:1470, name_fr:'Répéteur WiFi Amplificateur', name_en:'WiFi Range Extender', desc_fr:'Éliminez les zones sans signal, installation en 1 minute.', desc_en:'Eliminate dead zones, 1-minute setup.' },
+    { cat:'computers', img:'monitor.svg', price:165000, old:195000, badge:'', rating:4.7, sold:380, name_fr:'Écran 27" 2K 144 Hz', name_en:'27" 2K 144Hz Monitor', desc_fr:'Dalle nette, fluide et immersive pour travail et gaming.', desc_en:'Sharp, smooth and immersive panel for work and gaming.' }
+  ]
+};

@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Secrets / variables d'environnement (NE JAMAIS publier)
+.env
+.env.*
+
+# Base de données et sauvegardes (données runtime / clients)
+data/
+*.db
+*.sqlite
+
+# Fichiers temporaires macOS
+.DS_Store
+.~lock*
+
+# Documents bureautiques (non liés au site)
+*.xlsx
+*.docx
+Envoyer-sur-github.command

@@ -1,0 +1,29 @@
+========================================
+  DOSSIER IMAGES — ROYAL ORBITECH
+========================================
+
+Mettez vos images ici en respectant EXACTEMENT ces noms de fichiers.
+Le site les affichera automatiquement. Tant qu'une image est absente,
+un espace « Ajoutez une image » s'affiche à la place (le site reste beau).
+
+FICHIERS ATTENDUS
+-----------------
+logo.png      -> Votre logo (DÉJÀ EN PLACE ✅)
+projet1.jpg   -> Réalisation 1 (ex: projet IA)
+projet2.jpg   -> Réalisation 2 (ex: site e-commerce)
+projet3.jpg   -> Réalisation 3 (ex: application mobile)
+projet4.jpg   -> Réalisation 4 (ex: plateforme métier)
+equipe.jpg    -> Photo équipe / bureau (section « Pourquoi nous »)
+
+CONSEILS
+--------
+- Formats acceptés : .jpg ou .png
+- Réalisations : format vertical/portrait conseillé (ex: 800 x 1000 px)
+- Photo équipe : format paysage conseillé (ex: 1200 x 800 px)
+- Gardez des images légères (< 500 Ko) pour un site rapide.
+- Vous pouvez ajouter d'autres images ; pour les afficher,
+  demandez-moi d'ajouter de nouvelles cartes dans la galerie.
+
+POUR VISITER LE SITE
+--------------------
+Double-cliquez sur le fichier « index.html » à la racine du dossier.
